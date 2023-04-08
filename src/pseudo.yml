@@ -1,0 +1,23 @@
+Counter:
+  state:
+    count: 0
+
+  eventHandlers:
+    handleIncrement: |
+      SET STATE count = count + 1
+    handleDecrement: |
+      SET STATE count = count - 1
+
+  render:
+    - element: DIV
+      children:
+        - element: BUTTON
+          props:
+            onClick: handleIncrement
+          text: "Increment"
+        - element: SPAN
+          text: "Count: {count}"
+        - element: BUTTON
+          props:
+            onClick: handleDecrement
+          text: "Decrement"
